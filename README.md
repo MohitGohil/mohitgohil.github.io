@@ -1,18 +1,21 @@
 ## Hi there, I'm Mohit Gohil! 👋
 
-### 👨‍💻 `whoami`
+### 👨‍💻 About Me
 
 - 🇮🇳 **Software Engineer** based in Mumbai, India.
-- 💼 **Software Developer** at ![Svatantra MHFC](https://img.shields.io/badge/Svatantra%20MHFC-234ea94b?style=flat-square&logo=svatantramhfc&logoColor=green), focusing on **API integration, automation, and database optimization**.
+- 💼 **Software Developer** at Svatantra Micro Housing Finance Corporation Ltd., specializing in **API integration, automation, and database optimization**.
 - 🚀 Skilled in **Node.js, PHP, MySQL, and MongoDB**, with experience in **scalable architecture** and **system performance tuning**.
+- 🚀 Proficient in **Node.js, PHP, MySQL, and MongoDB**, with hands-on experience in **scalable architecture and system performance tuning**.
 - 🎓 Bachelor of Science in **Information Technology** from **Mumbai University (2021)**.
-- 🔍 Currently expanding expertise in **TypeScript, Docker, and AWS**.
+- 🔍 Passionate about **TypeScript, Docker, and AWS**, continuously learning and evolving.
+
+---
 
 ### ⚡ Skills
 
 #### 🚀 Core Languages
 
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 #### 🏗️ Frameworks and Tools
 
@@ -28,20 +31,25 @@
 
 ### 📂 Featured Projects
 
-- **🔒 Authentication API** – JWT-based secure authentication system with OTP verification.  
+- **🔒 Authentication API** – JWT-based secure authentication system with OTP verification.\
   _Node.js, Express, MongoDB, Docker, Nginx_
 
-- **📧 Email Automation Helper** – Automated multi-user email dispatch with CSV integration and rich HTML emails.  
+- **📧 Email Automation Helper** – Automated multi-user email dispatch with CSV integration and rich HTML emails.\
   _Node.js, MongoDB, Docker_
 
-- **🔗 URL Shortener** – Custom URL shortening service with analytics and link expiration.  
+- **🔗 URL Shortener** – Custom URL shortening service with analytics and link expiration.\
   _Node.js, MongoDB, Docker_
 
-- **💬 Private LiveChat** – Real-time anonymous chat with bidirectional TCP communication.  
+- **💬 Private LiveChat** – Real-time anonymous chat with bidirectional TCP communication and custom private rooms for secure communication.\
   _Node.js, Socket.IO, HTML, CSS, JavaScript_
 
-- **🍽️ Food Shop Automation** – Online food ordering system with live tracking and automated invoicing.  
+- **📇 vCard Generator** – Application to generate vCard QR codes for seamless sharing of personal details. Users can scan the QR code to directly import contact information.\
+  _Node.js, Express, QR Code Generator API, HTML, CSS_
+
+- **🍽️ Food Shop Automation** – Online food ordering system with live tracking and automated invoicing.\
   _PHP, MySQL, Bootstrap_
+
+---
 
 ### 📈 Github Stats
 
@@ -51,10 +59,10 @@
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=MohitGohil&show_icons=true&theme=dark&layout=compact&hide_border=true)
 
+---
+
 ### 🤝 Connect with Me
 
-[![Linkedin: Mohit Gohil](https://img.shields.io/badge/mohit%20gohil-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohit-gohil/)
-[![GitHub MohitGohil](https://img.shields.io/badge/MohitGohil-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MohitGohil)
-[![Instagram](https://img.shields.io/badge/i_am_mohitgohil-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/i_am_mohitgohil/)
+[![Linkedin: Mohit Gohil](https://img.shields.io/badge/mohit%20gohil-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohit-gohil/) [![GitHub MohitGohil](https://img.shields.io/badge/MohitGohil-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MohitGohil) [![Instagram](https://img.shields.io/badge/i_am_mohitgohil-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/i_am_mohitgohil/)
 
 - ✉️ **Email:** To get my email paste: `bW9oaXRnb2hpbDU3MUBnbWFpbC5jb20=` [here](https://www.base64decode.org/) or [here](https://emn178.github.io/online-tools/base64_decode.html). I've Base 64 encoded my email address to keep it safe from email scrapping bots.
