@@ -4,7 +4,6 @@
 
 - 🇮🇳 **Software Engineer** based in Mumbai, India.
 - 💼 **Software Developer** at Svatantra Micro Housing Finance Corporation Ltd., specializing in **API integration, automation, and database optimization**.
-- 🚀 Skilled in **Node.js, PHP, MySQL, and MongoDB**, with experience in **scalable architecture** and **system performance tuning**.
 - 🚀 Proficient in **Node.js, PHP, MySQL, and MongoDB**, with hands-on experience in **scalable architecture and system performance tuning**.
 - 🎓 Bachelor of Science in **Information Technology** from **Mumbai University (2021)**.
 - 🔍 Passionate about **TypeScript, Docker, and AWS**, continuously learning and evolving.
