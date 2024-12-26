@@ -1,4 +1,4 @@
-## Hi there, I'm Mohit! 👋
+## Hi there, I'm Mohit Gohil! 👋
 
 ### 👨‍💻 `whoami`
 
