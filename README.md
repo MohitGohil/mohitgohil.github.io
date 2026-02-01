@@ -3,7 +3,7 @@
 ### 👨‍💻 `whoami`
 
 - 🇮🇳 **Software Engineer** based in Mumbai, India.
-- 💼 Software Developer at ![Svatantra MHFC](https://img.shields.io/badge/Svatantra%20MHFC-234ea94b?style=flat-square&logo=svatantramhfc&logoColor=green), building and scaling core lending systems across India.
+- 💼 Senior Software Engineer at ![Svatantra MHFC](https://img.shields.io/badge/Svatantra%20MHFC-234ea94b?style=flat-square&logo=svatantramhfc&logoColor=green), building and scaling core lending systems across India.
 - 🧠 Specialize in **backend development, API design, automation scripting**, and **MySQL/PostgreSQL optimization**.
 - 🎓 B.Sc. in **Information Technology**, University of Mumbai (2021).
 - 🚀 Currently leveling up in **TypeScript**, **Docker**, and **cloud-native architectures**.
