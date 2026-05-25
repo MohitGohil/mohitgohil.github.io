@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohit Gohil — Senior Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-tertiary: #1a1a24;
+            --text-primary: #e8e8ec;
+            --text-secondary: #9a9aa8;
+            --text-muted: #6b6b78;
+            --accent: #00d4aa;
+            --accent-dim: rgba(0, 212, 170, 0.15);
+            --border: #22222c;
+            --border-light: #2a2a36;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 80px 0 48px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .name {
+            font-size: clamp(28px, 6vw, 42px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: clamp(14px, 3vw, 18px);
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+
+        .location {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+        }
+
+        .contact-link svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        /* Section styling */
+        section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* Currently section */
+        .currently-header {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .currently-company {
+            font-size: clamp(16px, 3vw, 18px);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .currently-badge {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 4px 10px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .currently-desc {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .currently-desc strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Metrics grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        @media (min-width: 600px) {
+            .metrics-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .metric-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 6px;
+            word-break: break-word;
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .scope-line {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.6;
+        }
+
+        .scope-line span {
+            color: var(--text-secondary);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .skill-category-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .skill-list {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .skill-list strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .learning-note {
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .learning-note strong {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Work section */
+        .work-item {
+            margin-bottom: 32px;
+        }
+
+        .work-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .work-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .work-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .work-company {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .work-list {
+            list-style: none;
+        }
+
+        .work-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .work-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .work-list li strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Featured project */
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.3s ease;
+        }
+
+        @media (min-width: 600px) {
+            .project-card {
+                padding: 28px;
+            }
+        }
+
+        .project-card:hover {
+            border-color: var(--border-light);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .project-org {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .project-highlights {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .project-highlights li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .project-highlights li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 5px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .project-stack {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            word-break: break-word;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .project-link:hover {
+            opacity: 0.8;
+        }
+
+        .project-link svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Footer / Connect */
+        .connect-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .connect-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .connect-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .connect-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .connect-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .connect-text {
+            font-size: 14px;
+            min-width: 0;
+        }
+
+        .connect-text strong {
+            color: var(--text-primary);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .footer-note {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            header {
+                padding: 48px 0 32px;
+            }
+
+            section {
+                padding: 32px 0;
+            }
+
+            .contact-row {
+                gap: 12px;
+            }
+
+            .metric-card {
+                padding: 16px;
+            }
+
+            .skill-category {
+                padding: 16px;
+            }
+
+            .project-card {
+                padding: 20px;
+            }
+
+            .work-list li {
+                padding-left: 16px;
+            }
+
+            .work-list li::before {
+                top: 9px;
+                width: 5px;
+                height: 5px;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header, section {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+        section:nth-child(6) { animation-delay: 0.5s; }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="name">Mohit Gohil</h1>
+            <p class="title">Senior Software Engineer — Node.js, Distributed Systems, Fintech Payments</p>
+            <p class="location">Mumbai, India · Open to Mumbai, Pune, Bangalore, Hyderabad, Remote</p>
+
+            <div class="contact-row">
+                <a href="https://linkedin.com/in/mohit-gohil" class="contact-link" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="mailto:mohitgohil571@gmail.com" class="contact-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    Email
+                </a>
+                <a href="https://github.com/MohitGohil" class="contact-link" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </header>
+
+        <!-- Currently -->
+        <section>
+            <h2 class="section-title">Currently</h2>
+
+            <div class="currently-header">
+                <span class="currently-company">Svatantra Micro Housing Finance Corporation</span>
+                <span class="currently-badge">NBFC · India</span>
+            </div>
+
+            <p class="currently-desc">
+                Building and owning backend systems for a regulated NBFC serving <strong>50,000+ customers</strong> and <strong>2,500+ internal users</strong> across loan origination, management, and payment platforms.
+            </p>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">₹30-40Cr</div>
+                    <div class="metric-label">Monthly transaction volume through automated payment flows</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">2,000+</div>
+                    <div class="metric-label">Payment mandates processed monthly across 5 gateways</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">60%</div>
+                    <div class="metric-label">API latency reduction (2.5s → 1s) via query optimization & Redis</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">70%</div>
+                    <div class="metric-label">Synchronous API load cut via distributed job processing</div>
+                </div>
+            </div>
+
+            <p class="scope-line">
+                <span>Scope:</span> 10+ APIs · 50,000+ customers · 2,500+ internal users · 3 junior developers mentored
+            </p>
+        </section>
+
+        <!-- What I Work With -->
+        <section>
+            <h2 class="section-title">What I Work With</h2>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">Backend & APIs</div>
+                    <div class="skill-list">
+                        <strong>Node.js</strong> · Express.js · REST APIs · WebSockets · JWT Authentication
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Languages</div>
+                    <div class="skill-list">
+                        <strong>JavaScript</strong> · <strong>TypeScript</strong> · PHP (Core) · Python
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Data</div>
+                    <div class="skill-list">
+                        <strong>MySQL</strong> · Redis · Query Optimization · Indexing Strategies
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Distributed Systems</div>
+                    <div class="skill-list">
+                        <strong>Bull Queue</strong> · Background Jobs · Async Workflows · Automatic Reconciliation
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Cloud & Infrastructure</div>
+                    <div class="skill-list">
+                        <strong>AWS EC2</strong> · AWS S3 · AWS RDS · Linux · Nginx · PM2 · Shell Scripting · <strong>Docker</strong>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Security</div>
+                    <div class="skill-list">
+                        <strong>VAPT Remediation</strong> · OWASP · API Security · Auth Hardening
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Testing & Docs</div>
+                    <div class="skill-list">
+                        <strong>Jest</strong> · Unit Testing · Integration Testing · Postman · Swagger
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Frontend (Supporting)</div>
+                    <div class="skill-list">
+                        <strong>React.js</strong> · Zustand · Tailwind CSS · jQuery
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-note">
+                <strong>Learning:</strong> Kubernetes · Kafka · Advanced AWS services
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section>
+            <h2 class="section-title">Experience</h2>
+
+            <div class="work-item">
+                <div class="work-header">
+                    <span class="work-title">Senior Software Engineer</span>
+                    <span class="work-date">Jan 2024 — Present</span>
+                </div>
+                <div class="work-company">Svatantra Micro Housing Finance Corporation Ltd., Mumbai</div>
+                <ul class="work-list">
+                    <li>Automated payment workflows across <strong>Razorpay, ICICI UPI, Bank of Baroda, HDFC SFTP, and ICICI SFTP</strong> — processing 2,000+ monthly mandates and ₹30-40 Crores in monthly transaction volume with zero manual intervention.</li>
+                    <li>Architected distributed background job system handling <strong>100+ daily jobs</strong> with automatic reconciliation — cutting synchronous API load by 70% during month-end peak traffic.</li>
+                    <li>Redesigned high-throughput REST APIs using Node.js & Express, reducing <strong>p95 response times by 60%</strong> (2.5s → 1s) through query tuning, composite indexing, and Redis caching layers.</li>
+                    <li>Resolved <strong>5+ critical security vulnerabilities</strong> (SQL Injection, XSS, Auth bypass) identified during VAPT audits, hardening JWT authentication and API security posture for NBFC regulatory compliance.</li>
+                    <li>Managed production deployments on AWS EC2 with PM2 and Nginx. Handled <strong>P0/P1 incident resolution</strong>, root cause analysis, and production stability monitoring.</li>
+                    <li>Mentored <strong>3 junior developers</strong>, conducted architecture reviews, and acted as technical escalation point for backend design decisions and sprint planning.</li>
+                </ul>
+            </div>
+
+            <div class="work-item">
+                <div class="work-header">
+                    <span class="work-title">Software Engineer</span>
+                    <span class="work-date">Oct 2021 — Dec 2023</span>
+                </div>
+                <div class="work-company">Svatantra Micro Housing Finance Corporation Ltd., Mumbai</div>
+                <ul class="work-list">
+                    <li>Owned and maintained <strong>10+ backend APIs</strong> supporting 50,000+ customers and 2,500+ internal users across LOS, LMS, and internal platforms in a regulated NBFC environment.</li>
+                    <li>Led migration of legacy <strong>Core PHP monolith modules to Node.js</strong>, improving system scalability, code maintainability, and reducing deployment failures.</li>
+                    <li>Built automated MIS reporting pipeline, <strong>saving 100+ manual hours per month</strong> for operations and finance teams.</li>
+                    <li>Implemented data archiving and query optimization strategies, reducing page load times by <strong>40-60%</strong> during high-volume reporting cycles.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Featured Work -->
+        <section>
+            <h2 class="section-title">Featured Work</h2>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-name">LMS Architecture</span>
+                    <span class="project-org">Svatantra MHFC</span>
+                </div>
+                <p class="project-desc">
+                    Backend system for loan management in a regulated NBFC environment. Handles 50,000-60,000 customers and 2,000+ daily transactions with automated payment reconciliation.
+                </p>
+                <ul class="project-highlights">
+                    <li><strong>Payment Automation:</strong> Integrated 5 gateways with retry logic and failure recovery</li>
+                    <li><strong>Queue Decoupling:</strong> Bull + Redis for 70% synchronous load reduction at peak</li>
+                    <li><strong>Auto Reconciliation:</strong> Daily cron-based failure recovery, near-zero manual intervention</li>
+                    <li><strong>Performance:</strong> Data archiving + query optimization for 40-60% page load improvement</li>
+                </ul>
+                <div class="project-stack">
+                    Stack: Node.js · Express.js · MySQL · Redis · Bull Queue · AWS S3 · REST APIs
+                </div>
+                <a href="https://github.com/MohitGohil/lms-architecture" class="project-link" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    View architecture documentation →
+                </a>
+            </div>
+        </section>
+
+        <!-- Connect -->
+        <section>
+            <h2 class="section-title">Connect</h2>
+
+            <div class="connect-grid">
+                <a href="https://linkedin.com/in/mohit-gohil" class="connect-card" target="_blank" rel="noopener">
+                    <svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    <div class="connect-text">
+                        <strong>LinkedIn</strong>
+                        linkedin.com/in/mohit-gohil
+                    </div>
+                </a>
+                <a href="mailto:mohitgohil571@gmail.com" class="connect-card">
+                    <svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <div class="connect-text">
+                        <strong>Email</strong>
+                        mohitgohil571@gmail.com
+                    </div>
+                </a>
+                <a href="https://github.com/MohitGohil" class="connect-card" target="_blank" rel="noopener">
+                    <svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <div class="connect-text">
+                        <strong>GitHub</strong>
+                        github.com/MohitGohil
+                    </div>
+                </a>
+            </div>
+
+            <p class="footer-note">
+                Senior Backend Engineer roles at product-driven fintech companies — let's talk.
+            </p>
+        </section>
+    </div>
+</body>
+</html>
